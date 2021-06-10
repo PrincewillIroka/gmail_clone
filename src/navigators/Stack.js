@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator, DrawerItem} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Inbox} from '../screens/Inbox';
+import {MailContainer} from '../screens';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -11,8 +11,15 @@ const DrawerStack = () => {
     <Drawer.Navigator>
       <Drawer.Screen
         name="Inbox"
-        component={Inbox}
+        component={MailContainer}
         options={{headerShown: false}}
+        initialParams={{screenTitle: 'Inbox'}}
+      />
+      <Drawer.Screen
+        name="Unread"
+        component={MailContainer}
+        options={{headerShown: false}}
+        initialParams={{screenTitle: 'Unread'}}
       />
     </Drawer.Navigator>
   );

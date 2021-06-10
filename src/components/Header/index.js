@@ -9,7 +9,7 @@ export function Header({toggleDrawer}) {
       <TouchableOpacity onPress={() => toggleDrawer()}>
         <MaterialIcons
           name="menu"
-          size={30}
+          size={27}
           color="gray"
           style={styles.menuIcon}
         />
