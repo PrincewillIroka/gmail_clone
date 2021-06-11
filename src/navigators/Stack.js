@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator, DrawerItem} from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import {MailContainer} from '../screens';
+import {MailContainer, MailDetails} from '../screens';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -25,12 +25,29 @@ const DrawerStack = () => {
   );
 };
 
+const SingleStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MailDetails"
+        component={MailDetails}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
 function AppStack() {
   return (
     <Stack.Navigator initialRouteName="DrawerStack">
       <Stack.Screen
         name="DrawerStack"
         component={DrawerStack}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SingleStack"
+        component={SingleStack}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

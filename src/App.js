@@ -15,7 +15,7 @@ const App = () => {
         state,
         dispatch,
       }}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.areaContainer}>
         <NavigationContainer>
           <AppStack />

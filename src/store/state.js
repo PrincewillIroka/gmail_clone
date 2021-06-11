@@ -1,17 +1,42 @@
 export default state = {
-  username: 'Princewill',
+  username: 'Princewill Iroka',
   mails: [
     {
       headers: {
         subject: 'June Mailing List',
-        date: 'Thu, 10 June 2021 15:35:32',
-        from: 'user@email.com',
-        to: 'test@email.com',
-        sender: 'test@email.com',
+        date: 'June 03',
+        from: 'Medium',
+        to: 'user@email.com',
+        sender: 'user@email.com',
         senderLogo:
           'https://cdn4.iconfinder.com/data/icons/social-media-circle-7/512/Medium_circle-512.png',
       },
-      body: {text: '<bold>Dear Jason</bold>, <br/>This is a test.'},
+      body: 'Here is a round-up of our stories for the month of June',
+      status: 'read',
+    },
+    {
+      headers: {
+        subject: 'John Doe commented on your post',
+        date: 'May 15',
+        from: 'Medium',
+        to: 'user@email.com',
+        sender: 'user@email.com',
+        senderLogo:
+          'https://cdn4.iconfinder.com/data/icons/social-media-circle-7/512/Medium_circle-512.png',
+      },
+      body: 'Princewill Iroka here are your most recent notifications',
+      status: 'read',
+    },
+    {
+      headers: {
+        subject: 'Your Cloud Firestore database rules need to be updated',
+        date: 'May 10',
+        from: 'firebase-noreply',
+        to: 'user@email.com',
+        sender: 'user@email.com',
+        senderLogo: '',
+      },
+      body: 'Princewill Iroka here are your most recent notifications',
       status: 'unread',
     },
   ],
