@@ -5,6 +5,7 @@ import AppStack from './navigators/Stack';
 import initialState from './store/state';
 import reducer from './store/reducer';
 import {AuthContext} from './context';
+import {navigationRef} from './navigators/RootNavigation';
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -17,7 +18,7 @@ const App = () => {
       }}>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.areaContainer}>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <AppStack />
         </NavigationContainer>
       </SafeAreaView>

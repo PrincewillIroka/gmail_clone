@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
-import {SafeAreaView, Text, FlatList} from 'react-native';
+import {SafeAreaView, Text, FlatList, View} from 'react-native';
 import shortid from 'shortid';
-import {Header, MailInfo} from '../../components';
+import {Header, MailInfo, BottomTab} from '../../components';
 import styles from './mailContainerStyle';
 import {AuthContext} from '../../context';
+import {navigateToNestedRoute} from '../../navigators/RootNavigation';
+import {getScreenParent} from '../../utils/navigationHelper';
 
 export function MailContainer({navigation, route}) {
   const screenTitle = route.params?.screenTitle;
@@ -14,7 +16,7 @@ export function MailContainer({navigation, route}) {
   };
 
   const handleNavigation = (route, params) => {
-    navigation?.navigate('SingleStack', {screen: route, params});
+    navigateToNestedRoute(getScreenParent(route), route, params);
   };
 
   const renderMailInfo = ({item}) => {
@@ -29,15 +31,19 @@ export function MailContainer({navigation, route}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header toggleDrawer={() => handleDrawer()} />
-      <Text style={styles.screenTitle}>{screenTitle}</Text>
-      <FlatList
-        data={state?.mails}
-        keyExtractor={(item, index) => shortid.generate()}
-        renderItem={renderMailInfo}
-        horizontal={false}
-        showsHorizontalScrollIndicator={false}
-      />
+      <View style={styles.content}>
+        <Header toggleDrawer={() => handleDrawer()} />
+        <Text style={styles.screenTitle}>{screenTitle}</Text>
+        <FlatList
+          data={state?.mails}
+          keyExtractor={(item, index) => shortid.generate()}
+          renderItem={renderMailInfo}
+          horizontal={false}
+          showsHorizontalScrollIndicator={false}
+          style={styles.flatList}
+        />
+      </View>
+      <BottomTab navigateToRoute={route => handleNavigation(route)} />
     </SafeAreaView>
   );
 }
