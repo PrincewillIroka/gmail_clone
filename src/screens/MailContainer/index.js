@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {SafeAreaView, Text, FlatList} from 'react-native';
 import shortid from 'shortid';
 import {Header, MailInfo} from '../../components';
 import styles from './mailContainerStyle';
@@ -14,7 +14,7 @@ export function MailContainer({navigation, route}) {
   };
 
   const handleNavigation = (route, params) => {
-    // navigateToNestedRoute(getScreenParent(route), route, params);
+    navigation?.navigate('SingleStack', {screen: route, params});
   };
 
   const renderMailInfo = ({item}) => {
@@ -22,24 +22,22 @@ export function MailContainer({navigation, route}) {
       <MailInfo
         mail={item}
         key={shortid.generate()}
-        navigateToRoute={() => handleNavigation('MailDetails', item)}
+        navigateToRoute={route => handleNavigation(route, item)}
       />
     );
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header toggleDrawer={() => handleDrawer()} />
       <Text style={styles.screenTitle}>{screenTitle}</Text>
-      <View style={styles.sectionContainer}>
-        <FlatList
-          data={state?.mails}
-          keyExtractor={(item, index) => shortid.generate()}
-          renderItem={renderMailInfo}
-          horizontal={false}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-    </View>
+      <FlatList
+        data={state?.mails}
+        keyExtractor={(item, index) => shortid.generate()}
+        renderItem={renderMailInfo}
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}
+      />
+    </SafeAreaView>
   );
 }

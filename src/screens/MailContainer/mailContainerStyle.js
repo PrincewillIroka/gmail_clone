@@ -4,8 +4,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
   },
-  sectionContainer: {
-  },
   screenTitle: {
     textTransform: 'uppercase',
     opacity: 0.5,
