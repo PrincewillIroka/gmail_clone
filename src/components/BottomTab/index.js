@@ -20,6 +20,14 @@ export function BottomTab({navigateToRoute}) {
     return unreadMails;
   };
 
+  const handleChangeRoute = tab => {
+    dispatch({
+      type: 'toggleActiveTab',
+      payload: {activeTab: tab},
+    });
+    navigateToRoute(tab);
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -38,7 +46,7 @@ export function BottomTab({navigateToRoute}) {
         <Text style={styles.tabText('Mail', activeTab)}>Mail</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigateToRoute('Meet')}
+        onPress={() => handleChangeRoute('Meet')}
         style={styles.rightTab}>
         <View style={styles.iconWrapper}>
           <MaterialIcons
