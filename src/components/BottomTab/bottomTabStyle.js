@@ -9,6 +9,14 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     position: 'absolute',
+    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: -3,
+    },
+    shadowColor: '#000000',
+    elevation: 4,
+    marginTop: 1
   },
   leftTab: {
     marginLeft: 'auto',

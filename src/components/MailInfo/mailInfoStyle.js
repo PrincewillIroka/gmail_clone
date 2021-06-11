@@ -7,12 +7,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 100,
-    borderColor: '#f4f4f4',
-    borderBottomWidth: 1,
   },
   senderLogo: {
     height: 50,
     width: 50,
+    borderRadius: 50,
   },
   senderInitialWrapper: {
     height: 50,

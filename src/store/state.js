@@ -60,7 +60,7 @@ export default state = {
         senderLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/768px-Stack_Overflow_icon.svg.png',
       },
       body: `New jobs that match your saved search on Stack Overflow`,
-      status: 'unread',
+      status: 'read',
     },
     {
       headers: {
@@ -83,7 +83,7 @@ export default state = {
         sender: 'user@email.com',
         senderLogo: ''},
       body: `Level-up your mobile app & interface skills in our new Dribbble Workshop`,
-      status: 'unread',
+      status: 'read',
     },
     {
       headers: {
