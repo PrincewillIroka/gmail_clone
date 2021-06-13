@@ -34,9 +34,11 @@ export function BottomTab({navigateToRoute}) {
         onPress={() => navigateToRoute('Inbox')}
         style={styles.leftTab}>
         <View style={styles.iconWrapper}>
-          <View style={styles.unreadMailIndicator}>
-            <Text style={styles.unreadMailText}>{getUnreadMails()}+</Text>
-          </View>
+          {getUnreadMails() > 0 ? (
+            <View style={styles.unreadMailIndicator}>
+              <Text style={styles.unreadMailText}>{getUnreadMails()}+</Text>
+            </View>
+          ) : null}
           <SimpleLineIcons
             name="envelope"
             size={20}

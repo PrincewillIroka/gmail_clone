@@ -32,6 +32,17 @@ export function MailContainer({navigation, route}) {
     }
   };
 
+  const getMails = () => {
+    let mails,
+      arr = ['Inbox', 'All mail'];
+    if (arr.includes(screenTitle)) {
+      mails = state?.mails;
+    } else {
+      mails = state?.mails?.filter(mail => mail.status === screenTitle) || [];
+    }
+    return mails;
+  };
+
   const renderMailInfo = ({item}) => {
     return (
       <MailInfo
@@ -73,7 +84,7 @@ export function MailContainer({navigation, route}) {
         <Header toggleDrawer={() => handleDrawer()} />
         <Text style={styles.screenTitle}>{screenTitle}</Text>
         <FlatList
-          data={state?.mails}
+          data={getMails()}
           keyExtractor={(item, index) => shortid.generate()}
           renderItem={renderMailInfo}
           horizontal={false}
