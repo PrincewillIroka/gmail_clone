@@ -54,6 +54,19 @@ const styles = StyleSheet.create({
     color: '#D93025',
     fontWeight: '600',
   },
+  emptyListContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    height: '100%',
+    alignItems: 'center',
+    paddingBottom: 100,
+  },
+  emptyListText: {
+    textAlign: 'center',
+    fontSize: 19,
+    opacity: 0.6,
+    marginTop: 20,
+  },
 });
 
 export default styles;

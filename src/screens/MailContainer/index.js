@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {SafeAreaView, Text, FlatList, View} from 'react-native';
 import shortid from 'shortid';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Header, MailInfo, BottomTab, TransitionText} from '../../components';
 import styles from './mailContainerStyle';
 import {AuthContext} from '../../context';
@@ -18,8 +19,8 @@ export function MailContainer({navigation, route}) {
     navigation?.openDrawer();
   };
 
-  const handleNavigation = (route, params) => {
-    navigateToNestedRoute(getScreenParent(route), route, params);
+  const handleNavigation = (screen, params) => {
+    navigateToNestedRoute(getScreenParent(screen), screen, params);
   };
 
   const onScroll = ({contentOffset}) => {
@@ -38,7 +39,10 @@ export function MailContainer({navigation, route}) {
     if (arr.includes(screenTitle)) {
       mails = state?.mails;
     } else {
-      mails = state?.mails?.filter(mail => mail.status === screenTitle) || [];
+      mails =
+        state?.mails?.filter(
+          mail => mail.status === screenTitle?.toLowerCase(),
+        ) || [];
     }
     return mails;
   };
@@ -48,7 +52,9 @@ export function MailContainer({navigation, route}) {
       <MailInfo
         mail={item}
         key={shortid.generate()}
-        navigateToRoute={route => handleNavigation(route, item)}
+        navigateToRoute={screen =>
+          handleNavigation(screen, {mail: item, screenTitle})
+        }
       />
     );
   };
@@ -78,26 +84,39 @@ export function MailContainer({navigation, route}) {
     );
   };
 
+  const EmptyListComponent = () => {
+    return (
+      <View style={styles.emptyListContainer}>
+        <MaterialCommunityIcons name="file" size={120} color="#f4a9a2" />
+        <Text style={styles.emptyListText}>Nothing in {screenTitle}</Text>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <Header toggleDrawer={() => handleDrawer()} />
         <Text style={styles.screenTitle}>{screenTitle}</Text>
-        <FlatList
-          data={getMails()}
-          keyExtractor={(item, index) => shortid.generate()}
-          renderItem={renderMailInfo}
-          horizontal={false}
-          showsHorizontalScrollIndicator={false}
-          style={styles.flatList}
-          onScroll={({nativeEvent}) => {
-            onScroll(nativeEvent);
-          }}
-          scrollEventThrottle={400}
-        />
+        {getMails().length > 0 ? (
+          <FlatList
+            data={getMails()}
+            keyExtractor={(item, index) => shortid.generate()}
+            renderItem={renderMailInfo}
+            horizontal={false}
+            showsVerticalScrollIndicator={false}
+            style={styles.flatList}
+            onScroll={({nativeEvent}) => {
+              onScroll(nativeEvent);
+            }}
+            scrollEventThrottle={400}
+          />
+        ) : (
+          <EmptyListComponent/>
+        )}
       </View>
       <ComposeButton />
-      <BottomTab navigateToRoute={route => handleNavigation(route)} />
+      <BottomTab navigateToRoute={screen => handleNavigation(screen)} />
     </SafeAreaView>
   );
 }

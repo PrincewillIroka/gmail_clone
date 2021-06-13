@@ -6,7 +6,7 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import styles from './mailDetailsStyle';
 
 export function MailDetails({route, navigation}) {
-  const mail = route?.params;
+  const {mail, screenTitle} = route?.params;
 
   const handleBackButton = () => {
     navigation?.goBack();

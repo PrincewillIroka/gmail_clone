@@ -65,7 +65,7 @@ function CustomDrawerContent(props) {
     if (arr.includes(tab)) {
       mails = state?.mails;
     } else {
-      mails = state?.mails?.filter(mail => mail.status === tab) || [];
+      mails = state?.mails?.filter(mail => mail.status === tab?.toLowerCase()) || [];
     }
     return mails?.length;
   };
