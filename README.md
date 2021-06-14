@@ -14,8 +14,8 @@ Don't forget to star :star2: this repo.
 
 - Website: https://princewilliroka.com/
 - Twitter: [@PrincewillIroka](https://twitter.com/PrincewillIroka)
-- Github: [@PrincewillIroka](https://github.com/PrincewillIroka)
-- LinkedIn: [@PrincewillIroka](https://www.linkedin.com/in/princewill-iroka/)
+- Github: [PrincewillIroka](https://github.com/PrincewillIroka)
+- LinkedIn: [Princewill Iroka](https://www.linkedin.com/in/princewill-iroka/)
 
 ### License
 Copyright 2021 **Princewill Iroka** \
