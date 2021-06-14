@@ -5,6 +5,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  headerLeftContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerText: {
+    marginLeft: 20,
+    fontSize: 18,
+  },
   headerContainer: {
     paddingVertical: 16,
     paddingHorizontal: 16,
@@ -23,15 +32,37 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   bodyWrapper: {
-    padding: 16,
+    flex: 1,
   },
-  mailSubjectRow: {
+  contentRow: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: 7,
+    borderBottomColor: '#f4f4f4',
+    borderBottomWidth: 1,
+    paddingHorizontal: 10,
   },
-  mailSubjectText: {color: '#323232', fontSize: 17, width: '83%'},
+  infoRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  infoTitle: {
+    fontSize: 17,
+    color: '#595959',
+  },
+  infoValue: {
+    marginLeft: 15,
+    fontSize: 16,
+  },
+  composeTextInput: {
+    height: '100%',
+    width: '100%',
+    fontSize: 17,
+    padding: 10
+  },
 });
 
 export default styles;

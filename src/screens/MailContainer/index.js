@@ -1,5 +1,11 @@
 import React, {useContext, useState} from 'react';
-import {SafeAreaView, Text, FlatList, View} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  FlatList,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import shortid from 'shortid';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -62,13 +68,14 @@ export function MailContainer({navigation, route}) {
   const ComposeButton = () => {
     const {isScrollingUp} = data;
     return (
-      <View
+      <TouchableOpacity
         style={[
           styles.composeButton,
           isScrollingUp
             ? styles.composeButtonRound
             : styles.composeButtonCurved,
-        ]}>
+        ]}
+        onPress={() => handleNavigation('Compose')}>
         <Feather
           name="edit-2"
           size={20}
@@ -80,7 +87,7 @@ export function MailContainer({navigation, route}) {
           <Text style={styles.composeText}>Compose</Text>
         ) : // </TransitionText>
         null}
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -112,7 +119,7 @@ export function MailContainer({navigation, route}) {
             scrollEventThrottle={400}
           />
         ) : (
-          <EmptyListComponent/>
+          <EmptyListComponent />
         )}
       </View>
       <ComposeButton />

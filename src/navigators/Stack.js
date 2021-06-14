@@ -10,8 +10,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import shortid from 'shortid';
-import {MailContainer, MailDetails, Meet} from '../screens';
-import appTheme from '../constants/colors';
+import {MailContainer, MailDetails, Meet, Compose} from '../screens';
 import {combineData} from '../utils/DataHelper';
 import {AuthContext} from '../context';
 
@@ -65,7 +64,8 @@ function CustomDrawerContent(props) {
     if (arr.includes(tab)) {
       mails = state?.mails;
     } else {
-      mails = state?.mails?.filter(mail => mail.status === tab?.toLowerCase()) || [];
+      mails =
+        state?.mails?.filter(mail => mail.status === tab?.toLowerCase()) || [];
     }
     return mails?.length;
   };
@@ -268,6 +268,11 @@ const SingleStack = () => {
       <Stack.Screen
         name="Meet"
         component={Meet}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Compose"
+        component={Compose}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

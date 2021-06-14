@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from './mailDetailsStyle';
 
 export function MailDetails({route, navigation}) {
@@ -16,23 +16,43 @@ export function MailDetails({route, navigation}) {
     return (
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={() => handleBackButton()}>
-          <MaterialIcons name="arrow-back" size={25} />
+          <MaterialIcons name="arrow-back" size={25} color="#323232" />
         </TouchableOpacity>
         <View style={styles.headerRightContainer}>
-          <MaterialIcons name="archive" size={25} />
-          <AntDesign name="delete" size={22} style={styles.rightIcon} />
-          <SimpleLineIcons name="envelope" size={22} style={styles.rightIcon} />
-          <MaterialIcons name="more-vert" size={25} style={styles.rightIcon} />
+          <MaterialCommunityIcons
+            name="archive-arrow-down-outline"
+            size={25}
+            color="#323232"
+          />
+          <MaterialCommunityIcons
+            name="trash-can-outline"
+            size={25}
+            style={styles.rightIcon}
+            color="#323232"
+          />
+          <FontAwesome
+            name="envelope-o"
+            size={22}
+            style={styles.rightIcon}
+            color="#323232"
+          />
+          <MaterialIcons
+            name="more-vert"
+            size={25}
+            style={styles.rightIcon}
+            color="#323232"
+          />
         </View>
       </View>
     );
   };
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Header />
-      <View style={styles.container}>
+      <View style={styles.bodyWrapper}>
         <View style={styles.mailSubjectRow}>
-          <Text style={styles.mailSubjectText}>MailDetails</Text>
+          <Text style={styles.mailSubjectText}>{mail?.headers?.subject}</Text>
           <MaterialIcons
             name="star-outline"
             size={27}
