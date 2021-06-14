@@ -3,9 +3,9 @@ export default state = {
   mails: [
     {
       headers: {
-        subject: 'June Mailing List',
-        date: 'June 03',
-        from: 'Medium',
+        subject: 'What You Need to Know About React 18 | Sheeraz Shaikh in JavaScript in Plain English',
+        date: 'June 14',
+        from: 'Medium Daily Digest',
         to: 'user@email.com',
         sender: 'user@email.com',
         senderLogo:
