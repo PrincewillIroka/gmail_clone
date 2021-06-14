@@ -8,8 +8,14 @@
 ### Like this project?
 Don't forget to star :star2: this repo.
 
-### Follow me on Twitter
-[@PrincewillIroka](https://twitter.com/PrincewillIroka)
+### Author
+
+👤 **Princewill Iroka**
+
+- Website: https://princewilliroka.com/
+- Twitter: [@PrincewillIroka](https://twitter.com/PrincewillIroka)
+- Github: [@PrincewillIroka](https://github.com/PrincewillIroka)
+- LinkedIn: [@PrincewillIroka](https://www.linkedin.com/in/princewill-iroka/)
 
 ### License
 Copyright 2021 **Princewill Iroka** \
