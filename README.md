@@ -20,8 +20,6 @@ Don't forget to star :star2: this repo.
 👤 **Princewill Iroka**
 
 - Twitter: [@PrincewillIroka](https://twitter.com/PrincewillIroka)
-- Github: [PrincewillIroka](https://github.com/PrincewillIroka)
-- LinkedIn: [Princewill Iroka](https://www.linkedin.com/in/princewill-iroka/)
 
 ### License
 Copyright 2021 **Princewill Iroka** \
