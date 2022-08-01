@@ -5,6 +5,7 @@ import {
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -16,6 +17,7 @@ import {AuthContext} from '../context';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 function CustomDrawerContent(props) {
   const {state, dispatch} = useContext(AuthContext);
@@ -254,6 +256,15 @@ const DrawerStack = () => {
         initialParams={{screenTitle: 'Trash'}}
       />
     </Drawer.Navigator>
+  );
+};
+
+const TabStack = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
   );
 };
 
